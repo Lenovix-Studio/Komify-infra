@@ -1,0 +1,98 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    // ==========================================
+    // 1. DEVELOPMENT TASKS (Split Terminal Aktif)
+    // ==========================================
+    {
+      "label": "Dev Backend",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "presentation": {
+        "group": "komify-dev",
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Dev Frontend",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}/frontend" },
+      "presentation": {
+        "group": "komify-dev",
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "🚀 1. Mode: Development",
+      "dependsOn": ["Dev Backend", "Dev Frontend"],
+      "group": { "kind": "build", "isDefault": true }
+    },
+
+    // ==========================================
+    // 2. BUILD TASKS (Berurutan & Auto-Close)
+    // ==========================================
+    {
+      "label": "Build Backend",
+      "type": "shell",
+      "command": "npm run build",
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "presentation": {
+        "group": "komify-build",
+        "reveal": "always",
+        "close": true // Otomatis tutup terminal jika build sukses
+      }
+    },
+    {
+      "label": "Build Frontend",
+      "type": "shell",
+      "command": "npm run build",
+      "options": { "cwd": "${workspaceFolder}/frontend" },
+      "presentation": {
+        "group": "komify-build",
+        "reveal": "always",
+        "close": true // Otomatis tutup terminal jika build sukses
+      }
+    },
+    {
+      "label": "📦 2. Mode: Build Project",
+      "dependsOn": ["Build Backend", "Build Frontend"],
+      "dependsOrder": "sequence", // Urutan: Backend beres, baru Frontend mulai
+      "group": "build"
+    },
+
+    // ==========================================
+    // 3. PRODUCTION TASKS (Split Terminal Aktif)
+    // ==========================================
+    {
+      "label": "Prod Backend",
+      "type": "shell",
+      "command": "npm run start",
+      "options": { "cwd": "${workspaceFolder}/backend" },
+      "presentation": {
+        "group": "komify-prod",
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Prod Frontend",
+      "type": "shell",
+      "command": "npm run start",
+      "options": { "cwd": "${workspaceFolder}/frontend" },
+      "presentation": {
+        "group": "komify-prod",
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "🔥 3. Mode: Production",
+      "dependsOn": ["Prod Backend", "Prod Frontend"],
+      "group": "build"
+    }
+  ]
+}

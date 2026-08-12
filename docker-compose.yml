@@ -1,0 +1,41 @@
+services:
+  postgres_prod:
+    image: postgres:16
+    container_name: prod
+    restart: unless-stopped
+    env_file:
+      - ../backend/.env.production
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./data/postgres_prod:/var/lib/postgresql/data
+    networks:
+      - komify
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres_dev:
+    image: postgres:16
+    container_name: dev
+    restart: unless-stopped
+    env_file:
+      - ../backend/.env.development
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./data/postgres_dev:/var/lib/postgresql/data
+    networks:
+      - komify
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  komify:
+    driver: bridge
+    name: komify

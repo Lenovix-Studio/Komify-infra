@@ -1,0 +1,102 @@
+=== IMPROVE
+Powerfull Feature:
+    
+General: 
+
+Homepage:
+    - status badge bookmark in comic list
+    - Cover can landscape or potrait
+
+Chapter View page:
+    - add button to go up/down page
+    - Auto-rotate
+
+Upload Page:
+    - in header chapter, have sum of chapter
+    - chapter section > language: add mix language
+    - modal confirm Upload
+    - progress upload
+    - extract comic:
+        - https://nhentai.to/g/266893/
+        - https://hentai2read.com/hajimete_no_netorare_masoka_choukyou/
+        - https://imhentai.to/g/266893/
+        - https://hitomi.la/cg/寝取られ母-日本語-691522.html#1
+        - https://doujindesu.tv/manga/kimi-wa-yasashiku-netorareru/
+        - https://www.hentai.name/g/533966/
+        - https://hentaiera.com/gallery/982246/
+
+
+=== !!! Error/Bug on Production:
+- Edit comic http://localhost:3000/comic/8037060a-d1da-4bd0-a980-22dbc9806024/edit:
+    Unique constraint failed on the fields: (`name`)
+        at ei.handleRequestError (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:7268)
+        at ei.handleAndLogRequestError (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:6593)
+        at ei.request (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:6300)
+        at async a (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:130:9551)
+        at async D:\komify-server\apps\backend\dist\modules\comics\comics.service.js:583:32
+        at async Proxy._transactionWithCallback (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:130:8120)
+        at async ComicsService.editComic (D:\komify-server\apps\backend\dist\modules\comics\comics.service.js:548:16) {
+    code: 'P2002',
+    meta: {
+        modelName: 'tb_artists',
+        target: [
+        'name'
+        ]
+    },
+    clientVersion: '6.19.3'
+    }
+- Backend > Error terjadi ketika upload comic baru (ex. big.g):
+    [Nest] 19928  - 26/07/2026, 08.16.49   ERROR [ExceptionsHandler] PrismaClientKnownRequestError: 
+    Invalid `prisma.tb_artists.create()` invocation:
+
+
+    Unique constraint failed on the fields: (`name`)
+        at ei.handleRequestError (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:7268)
+        at ei.handleAndLogRequestError (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:6593)
+        at ei.request (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:6300)
+        at async a (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:130:9551)
+        at async prisma.$transaction.timeout (D:\komify-server\apps\backend\dist\modules\comics\comics.service.js:884:36)
+        at async Proxy._transactionWithCallback (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:130:8120)
+        at async ComicsService.publishComic (D:\komify-server\apps\backend\dist\modules\comics\comics.service.js:825:16) {
+    code: 'P2002',
+    meta: {
+        modelName: 'tb_artists',
+        target: [
+        'name'
+        ]
+    },
+    clientVersion: '6.19.3'
+    }
+- Backend > Error terjadi ketika upload comic baru:
+    [Nest] 15380  - 16/06/2026, 13.39.58   ERROR [ExceptionsHandler] PrismaClientKnownRequestError: 
+    Invalid `prisma.tb_tags.create()` invocation:
+
+
+    The provided value for the column is too long for the column's type. Column: (not available)
+        at ei.handleRequestError (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:7268)
+        at ei.handleAndLogRequestError (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:6593)
+        at ei.request (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:6300)
+        at async a (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:130:9551)
+        at async prisma.$transaction.timeout (D:\komify-server\apps\backend\dist\modules\comics\comics.service.js:776:36)
+        at async Proxy._transactionWithCallback (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:130:8120)
+        at async ComicsService.publishComic (D:\komify-server\apps\backend\dist\modules\comics\comics.service.js:717:16) {
+    code: 'P2000',
+    meta: {
+        modelName: 'tb_tags',
+        column_name: '(not available)'
+    },
+    clientVersion: '6.19.3'
+- Backend > Error terjadi ketika database belum siap untuk konek:
+    PrismaClientInitializationError: Error querying the database: FATAL: the database system is starting up
+        at r (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:112:2770)
+        at async Proxy.onModuleInit (D:\komify-server\apps\backend\dist\prisma\prisma.service.js:30:9)
+        at async Promise.all (index 0)
+        at async callModuleInitHook (D:\komify-server\apps\backend\node_modules\@nestjs\core\hooks\on-module-init.hook.js:43:5)
+        at async NestApplication.callInitHook (D:\komify-server\apps\backend\node_modules\@nestjs\core\nest-application-context.js:252:13)
+        at async NestApplication.init (D:\komify-server\apps\backend\node_modules\@nestjs\core\nest-application.js:103:9)
+        at async NestApplication.listen (D:\komify-server\apps\backend\node_modules\@nestjs\core\nest-application.js:175:13)
+        at async bootstrap (D:\komify-server\apps\backend\dist\main.js:17:5) {
+    clientVersion: '6.19.3',
+    errorCode: undefined,
+    retryable: undefined
+    }
