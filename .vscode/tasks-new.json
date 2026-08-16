@@ -1,8 +1,21 @@
 {
-  "version": "2.0.0",
+  "version": "3.0.0",
   "tasks": [
     // ==========================================
-    // 1. DEVELOPMENT TASKS (Split Terminal Aktif)
+    // SYSTEM: AUTO TERMINATE PREVIOUS PROCESSES
+    // ==========================================
+    {
+      "label": "Cleanup Ports",
+      "type": "shell",
+      "command": "taskkill /F /IM node.exe /IM bun.exe 2>nul || exit 0",
+      "windows": {
+        "command": "taskkill /F /IM node.exe /IM bun.exe 2>nul & exit 0"
+      },
+      "presentation": { "reveal": "never", "panel": "shared" }
+    },
+
+    // ==========================================
+    // 1. DEVELOPMENT MODE
     // ==========================================
     {
       "label": "Dev Backend",
@@ -28,45 +41,28 @@
     },
     {
       "label": "🚀 1. Mode: Development",
-      "dependsOn": ["Dev Backend", "Dev Frontend"],
+      "dependsOn": ["Cleanup Ports", "Dev Backend", "Dev Frontend"],
+      "dependsOrder": "sequence",
       "group": { "kind": "build", "isDefault": true }
     },
 
     // ==========================================
-    // 2. BUILD TASKS (Berurutan & Auto-Close)
+    // 2. PRODUCTION MODE (Build + Start)
     // ==========================================
     {
       "label": "Build Backend",
       "type": "shell",
       "command": "bun run build",
       "options": { "cwd": "${workspaceFolder}/backend" },
-      "presentation": {
-        "group": "komify-build",
-        "reveal": "always",
-        "close": true
-      }
+      "presentation": { "reveal": "always", "close": true }
     },
     {
       "label": "Build Frontend",
       "type": "shell",
       "command": "npm run build",
       "options": { "cwd": "${workspaceFolder}/frontend" },
-      "presentation": {
-        "group": "komify-build",
-        "reveal": "always",
-        "close": true
-      }
+      "presentation": { "reveal": "always", "close": true }
     },
-    {
-      "label": "📦 2. Mode: Build Project",
-      "dependsOn": ["Build Backend", "Build Frontend"],
-      "dependsOrder": "sequence",
-      "group": "build"
-    },
-
-    // ==========================================
-    // 3. PRODUCTION TASKS (Split Terminal Aktif)
-    // ==========================================
     {
       "label": "Prod Backend",
       "type": "shell",
@@ -90,8 +86,15 @@
       }
     },
     {
-      "label": "🔥 3. Mode: Production",
-      "dependsOn": ["Prod Backend", "Prod Frontend"],
+      "label": "🔥 2. Mode: Production",
+      "dependsOn": [
+        "Cleanup Ports",
+        "Build Backend",
+        "Build Frontend",
+        "Prod Backend",
+        "Prod Frontend"
+      ],
+      "dependsOrder": "sequence",
       "group": "build"
     }
   ]
