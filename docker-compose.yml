@@ -1,3 +1,4 @@
+name: komify
 services:
   postgres_prod:
     image: postgres:16
