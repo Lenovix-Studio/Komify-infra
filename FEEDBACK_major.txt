@@ -111,38 +111,3 @@ Upload Page:
     errorCode: undefined,
     retryable: undefined
     }
-- Backend > Error terjadi ketika backend belum set environtment production [FIX-08/16/2026]:
-    [Nest] 9892  - 08/16/2026, 5:35:07 PM   ERROR [ExceptionsHandler] PrismaClientKnownRequestError: 
-    Invalid `this.prisma.comics.count()` invocation in
-    D:\komify\backend\dist\modules\comics\comics.service.js:434:32
-
-    431         },
-    432     },
-    433 }),
-    → 434 this.prisma.comics.count(
-    Can't reach database server at `localhost:5434`
-
-    Please make sure your database server is running at `localhost:5434`.
-        at handleRequestError (D:\komify\backend\node_modules\@prisma\client\runtime\library.js:121:7272)
-        at handleAndLogRequestError (D:\komify\backend\node_modules\@prisma\client\runtime\library.js:121:6593)
-        at request (D:\komify\backend\node_modules\@prisma\client\runtime\library.js:121:6300)
-        at processTicksAndRejections (native:7:39) {
-    code: 'P1001',
-    meta: {
-        modelName: 'comics',
-        database_location: 'localhost:5434'
-    },
-    clientVersion: '6.19.3'
-    }
-- console browser > error terjadi ketika mengetes spam tombol random comic [Fix Error Race Condition-08/16/2026]:
-    0.avzm-~ifl.-.js:12 Uncaught TypeError: Cannot read properties of undefined (reading 'id')
-        at 0.avzm-~ifl.-.js:12:4029
-        at ay (10u3y4bw1ayzs.js:1:63845)
-        at oJ (10u3y4bw1ayzs.js:1:84102)
-        at iu (10u3y4bw1ayzs.js:1:95704)
-        at sd (10u3y4bw1ayzs.js:1:138944)
-        at 10u3y4bw1ayzs.js:1:138789
-        at sf (10u3y4bw1ayzs.js:1:138797)
-        at se (10u3y4bw1ayzs.js:1:134718)
-        at s$ (10u3y4bw1ayzs.js:1:160495)
-        at MessagePort.O (10u3y4bw1ayzs.js:1:8660)
