@@ -7,7 +7,7 @@ services:
     env_file:
       - ../backend/.env.production
     ports:
-      - "5433:5432"
+      - "6011:5432"
     volumes:
       - ./data/postgres_prod:/var/lib/postgresql/data
     networks:
@@ -25,7 +25,7 @@ services:
     env_file:
       - ../backend/.env.development
     ports:
-      - "5434:5432"
+      - "6010:5432"
     volumes:
       - ./data/postgres_dev:/var/lib/postgresql/data
     networks:
