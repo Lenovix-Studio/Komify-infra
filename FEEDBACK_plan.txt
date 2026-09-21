@@ -4,6 +4,7 @@ Detail comic Page:
 Common Code Page (CRUD)
 
 System:
+    - Logging
     - Format/hard reset data and file
     - rating comic
     - change to client/server side
