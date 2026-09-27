@@ -1,0 +1,24 @@
+Upload Page:
+    - tab title kalo lagi kondisi uploading, titlenya "uploading..."
+    - extract comic:
+        - https://nhentai.to/g/266893/
+        - https://hentai2read.com/hajimete_no_netorare_masoka_choukyou/
+        - https://imhentai.to/g/266893/
+        - https://hitomi.la/cg/寝取られ母-日本語-691522.html#1
+        - https://doujindesu.tv/manga/kimi-wa-yasashiku-netorareru/
+        - https://www.hentai.name/g/533966/
+        - https://hentaiera.com/gallery/982246/
+
+Detail comic Page:
+    - modify ordering chapter
+
+System:
+    - Logging
+    - change to client/server side
+    - title tab sesuaikan
+    - List Metadata Links
+    - extract comic: can multi link
+
+Powerfull Feature:
+    - [K-Trans-Pages] auto translate on pages
+    - Support ZIP (ZIP to image-image)

@@ -1,0 +1,97 @@
+> [FIXED 28/09/2026] saat upload komik baru:
+    [Nest] 2288  - 09/28/2026, 2:37:59 AM   ERROR [ComicsService] Gagalsaat insert database komik:
+    [Nest] 2288  - 09/28/2026, 2:37:59 AM   ERROR [ComicsService] PrismaClientKnownRequestError: 
+    Invalid `prisma.chapters.create()` invocation:
+
+
+    Foreign key constraint violated on the constraint: `fk_chapters_language`
+        at handleRequestError (D:\komify\backend\dist\main.js:5785:19)
+        at handleAndLogRequestError (D:\komify\backend\dist\main.js:5770:14)
+        at request (D:\komify\backend\dist\main.js:5761:14)
+        at processTicksAndRejections (native:7:39) {
+    code: 'P2003',
+    meta: {
+        modelName: 'chapters',
+        constraint: 'fk_chapters_language'
+    },
+    clientVersion: '6.19.3'
+    }
+
+> [FIXED 28/09/2026] Frontend - fix paragraf modal melebar kebawah kalo isi dari input manjang kebawah
+
+> [FIXED 28/09/2026] Backend > Error terjadi ketika upload comic baru:
+    [Nest] 15380  - 16/06/2026, 13.39.58   ERROR [ExceptionsHandler] PrismaClientKnownRequestError: 
+    Invalid `prisma.tb_tags.create()` invocation:
+
+
+    The provided value for the column is too long for the column's type. Column: (not available)
+        at ei.handleRequestError (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:7268)
+        at ei.handleAndLogRequestError (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:6593)
+        at ei.request (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:6300)
+        at async a (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:130:9551)
+        at async prisma.$transaction.timeout (D:\komify-server\apps\backend\dist\modules\comics\comics.service.js:776:36)
+        at async Proxy._transactionWithCallback (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:130:8120)
+        at async ComicsService.publishComic (D:\komify-server\apps\backend\dist\modules\comics\comics.service.js:717:16) {
+    code: 'P2000',
+    meta: {
+        modelName: 'tb_tags',
+        column_name: '(not available)'
+    },
+    clientVersion: '6.19.3'
+
+> [FIXED 28/09/2026] Backend > Error terjadi ketika database belum siap untuk connect:
+    PrismaClientInitializationError: Error querying the database: FATAL: the database system is starting up
+        at r (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:112:2770)
+        at async Proxy.onModuleInit (D:\komify-server\apps\backend\dist\prisma\prisma.service.js:30:9)
+        at async Promise.all (index 0)
+        at async callModuleInitHook (D:\komify-server\apps\backend\node_modules\@nestjs\core\hooks\on-module-init.hook.js:43:5)
+        at async NestApplication.callInitHook (D:\komify-server\apps\backend\node_modules\@nestjs\core\nest-application-context.js:252:13)
+        at async NestApplication.init (D:\komify-server\apps\backend\node_modules\@nestjs\core\nest-application.js:103:9)
+        at async NestApplication.listen (D:\komify-server\apps\backend\node_modules\@nestjs\core\nest-application.js:175:13)
+        at async bootstrap (D:\komify-server\apps\backend\dist\main.js:17:5) {
+    clientVersion: '6.19.3',
+    errorCode: undefined,
+    retryable: undefined
+    }
+
+> [FIXED 28/09/2026] Edit comic http://localhost:3000/comic/8037060a-d1da-4bd0-a980-22dbc9806024/edit:
+    Unique constraint failed on the fields: (`name`)
+        at ei.handleRequestError (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:7268)
+        at ei.handleAndLogRequestError (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:6593)
+        at ei.request (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:6300)
+        at async a (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:130:9551)
+        at async D:\komify-server\apps\backend\dist\modules\comics\comics.service.js:583:32
+        at async Proxy._transactionWithCallback (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:130:8120)
+        at async ComicsService.editComic (D:\komify-server\apps\backend\dist\modules\comics\comics.service.js:548:16) {
+    code: 'P2002',
+    meta: {
+        modelName: 'tb_artists',
+        target: [
+        'name'
+        ]
+    },
+    clientVersion: '6.19.3'
+    }
+
+> [FIXED 28/09/2026] Backend > Error terjadi ketika upload comic baru (ex. big.g):
+    [Nest] 19928  - 26/07/2026, 08.16.49   ERROR [ExceptionsHandler] PrismaClientKnownRequestError: 
+    Invalid `prisma.tb_artists.create()` invocation:
+
+
+    Unique constraint failed on the fields: (`name`)
+        at ei.handleRequestError (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:7268)
+        at ei.handleAndLogRequestError (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:6593)
+        at ei.request (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:121:6300)
+        at async a (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:130:9551)
+        at async prisma.$transaction.timeout (D:\komify-server\apps\backend\dist\modules\comics\comics.service.js:884:36)
+        at async Proxy._transactionWithCallback (D:\komify-server\apps\backend\node_modules\@prisma\client\runtime\library.js:130:8120)
+        at async ComicsService.publishComic (D:\komify-server\apps\backend\dist\modules\comics\comics.service.js:825:16) {
+    code: 'P2002',
+    meta: {
+        modelName: 'tb_artists',
+        target: [
+        'name'
+        ]
+    },
+    clientVersion: '6.19.3'
+    }
