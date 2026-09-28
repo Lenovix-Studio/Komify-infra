@@ -1,5 +1,4 @@
 Upload Page:
-    - tab title kalo lagi kondisi uploading, titlenya "uploading..."
     - extract comic:
         - https://nhentai.to/g/266893/
         - https://hentai2read.com/hajimete_no_netorare_masoka_choukyou/
@@ -8,9 +7,6 @@ Upload Page:
         - https://doujindesu.tv/manga/kimi-wa-yasashiku-netorareru/
         - https://www.hentai.name/g/533966/
         - https://hentaiera.com/gallery/982246/
-
-Detail comic Page:
-    - modify ordering chapter
 
 System:
     - Logging

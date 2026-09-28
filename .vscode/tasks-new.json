@@ -1,21 +1,8 @@
 {
-  "version": "3.0.0",
+  "version": "2.0.0",
   "tasks": [
     // ==========================================
-    // SYSTEM: AUTO TERMINATE PREVIOUS PROCESSES
-    // ==========================================
-    {
-      "label": "Cleanup Ports",
-      "type": "shell",
-      "command": "taskkill /F /IM node.exe /IM bun.exe 2>nul || exit 0",
-      "windows": {
-        "command": "taskkill /F /IM node.exe /IM bun.exe 2>nul & exit 0"
-      },
-      "presentation": { "reveal": "never", "panel": "shared" }
-    },
-
-    // ==========================================
-    // 1. DEVELOPMENT MODE
+    // 1. DEVELOPMENT TASKS (Split Terminal Aktif)
     // ==========================================
     {
       "label": "Dev Backend",
@@ -41,61 +28,65 @@
     },
     {
       "label": "🚀 1. Mode: Development",
-      "dependsOn": ["Cleanup Ports", "Dev Backend", "Dev Frontend"],
-      "dependsOrder": "sequence",
+      "dependsOn": ["Dev Backend", "Dev Frontend"],
       "group": { "kind": "build", "isDefault": true }
     },
 
     // ==========================================
-    // 2. PRODUCTION MODE (Build + Start)
+    // 2. BUILD & RESTART TASKS (Alur Otomatis)
     // ==========================================
     {
       "label": "Build Backend",
       "type": "shell",
       "command": "bun run build",
       "options": { "cwd": "${workspaceFolder}/backend" },
-      "presentation": { "reveal": "always", "close": true }
+      "presentation": { "group": "komify-build", "reveal": "always", "close": true }
     },
     {
       "label": "Build Frontend",
       "type": "shell",
       "command": "npm run build",
       "options": { "cwd": "${workspaceFolder}/frontend" },
-      "presentation": { "reveal": "always", "close": true }
+      "presentation": { "group": "komify-build", "reveal": "always", "close": true }
     },
-    {
-      "label": "Prod Backend",
+     {
+      "label": "Restart Prod Backend",
       "type": "shell",
-      "command": "bun run start:bun",
+      "command": "pm2 delete komify-backend 2>nul & pm2 start bun --name \"komify-backend\" -- run start:bun",
       "options": { "cwd": "${workspaceFolder}/backend" },
-      "presentation": {
-        "group": "komify-prod",
-        "reveal": "always",
-        "panel": "dedicated"
-      }
+      "presentation": { "group": "komify-build", "reveal": "silent", "close": true }
     },
     {
-      "label": "Prod Frontend",
+      "label": "Restart Prod Frontend",
       "type": "shell",
-      "command": "npm run start",
+      "command": "pm2 delete komify-frontend 2>nul & pm2 start node_modules/next/dist/bin/next --name \"komify-frontend\" -- start",
       "options": { "cwd": "${workspaceFolder}/frontend" },
-      "presentation": {
-        "group": "komify-prod",
-        "reveal": "always",
-        "panel": "dedicated"
-      }
+      "presentation": { "group": "komify-build", "reveal": "silent", "close": true }
     },
     {
-      "label": "🔥 2. Mode: Production",
+      "label": "📦 2. Build & Restart Production",
       "dependsOn": [
-        "Cleanup Ports",
         "Build Backend",
         "Build Frontend",
-        "Prod Backend",
-        "Prod Frontend"
+        "Restart Prod Backend",
+        "Restart Prod Frontend"
       ],
       "dependsOrder": "sequence",
       "group": "build"
+    },
+
+    // ==========================================
+    // 3. MANUAL PRODUCTION VIEW (Cek Status PM2)
+    // ==========================================
+    {
+      "label": "🔥 3. Mode: Production Status",
+      "type": "shell",
+      "command": "pm2 ls",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
     }
   ]
 }
