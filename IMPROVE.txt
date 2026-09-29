@@ -8,9 +8,6 @@ Upload Page:
         - https://www.hentai.name/g/533966/
         - https://hentaiera.com/gallery/982246/
 
-System:
-    - Logging
-
 Powerfull Feature:
     - [K-Trans-Pages] auto translate on pages
     - Support ZIP (ZIP to image-image)
