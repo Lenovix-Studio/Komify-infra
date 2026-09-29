@@ -10,10 +10,6 @@ Upload Page:
 
 System:
     - Logging
-    - change to client/server side
-    - title tab sesuaikan
-    - List Metadata Links
-    - extract comic: can multi link
 
 Powerfull Feature:
     - [K-Trans-Pages] auto translate on pages
