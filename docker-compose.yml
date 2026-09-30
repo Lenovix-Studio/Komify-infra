@@ -18,7 +18,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-      
+
   postgres_prod:
     image: postgres:16
     container_name: prod
@@ -36,6 +36,18 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  manga-translator:
+    build:
+      context: ../scraper/manga-image-translator
+      dockerfile: Dockerfile.cpu
+    container_name: komify-manga-translator
+    restart: unless-stopped
+    ports:
+      - "5003:5003"
+    volumes:
+      - ../scraper/manga-image-translator/models:/app/models
+    networks:
+      - komify
 
 networks:
   komify:
