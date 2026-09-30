@@ -37,24 +37,6 @@ services:
       timeout: 5s
       retries: 5
 
-  scraper:
-    build:
-      context: ../scraper
-      dockerfile: Dockerfile
-    container_name: scraper
-    restart: unless-stopped
-    ports:
-      - "8000:8000"
-    environment:
-      - BACKEND_DEV_URL=http://docker.internal
-      - BACKEND_PROD_URL=http://docker.internal
-      - ENV=development
-    networks:
-      - komify
-    depends_on:
-      postgres_dev:
-        condition: service_healthy
-
 networks:
   komify:
     driver: bridge
