@@ -1,5 +1,8 @@
-> upload page > chapter selection file > modal confirm uplaod chapter > ketika saya tekan esc, gamabr yang sebelumnya tersimpan hilang
-
+Upload Page:
+    - extract comic:
+        - https://nhentai.net/g/129179/ [Failed to fetch page. Status: 522]
+        - https://www.hentai.name/g/533966/ [Failed to fetch page. Status: 403]
+        
 > [FIXED 28/09/2026] saat upload komik baru:
     [Nest] 2288  - 09/28/2026, 2:37:59 AM   ERROR [ComicsService] Gagalsaat insert database komik:
     [Nest] 2288  - 09/28/2026, 2:37:59 AM   ERROR [ComicsService] PrismaClientKnownRequestError: 
