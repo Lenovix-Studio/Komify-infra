@@ -1,8 +1,6 @@
 Upload Page:
     - extract comic:
-        - https://imhentai.to/g/266893/
-        - https://hitomi.la/cg/寝取られ母-日本語-691522.html#1
-        - https://doujindesu.tv/manga/kimi-wa-yasashiku-netorareru/
+        - https://doujindesu.tv/manga/kimi-wa-yasashiku-netorareru/ atau https://doujin.desu.xxx/manga/slipknot
         - https://www.hentai.name/g/533966/
         - https://hentaiera.com/gallery/982246/
 
