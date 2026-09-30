@@ -1,3 +1,5 @@
+> upload page > chapter selection file > modal confirm uplaod chapter > ketika saya tekan esc, gamabr yang sebelumnya tersimpan hilang
+
 > [FIXED 28/09/2026] saat upload komik baru:
     [Nest] 2288  - 09/28/2026, 2:37:59 AM   ERROR [ComicsService] Gagalsaat insert database komik:
     [Nest] 2288  - 09/28/2026, 2:37:59 AM   ERROR [ComicsService] PrismaClientKnownRequestError: 
