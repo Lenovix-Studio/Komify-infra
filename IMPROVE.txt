@@ -1,2 +1,0 @@
-Powerfull Feature:
-    - [K-Trans-Pages] auto translate on pages: fitur ini adalah untuk translate gambar komik panel (jadi kalo gambarnya kedeteksi bahasa china/korea/jepang), ada tombol di halaman chapter view untuk mentranslate semua pages ke bahasa inggris.
