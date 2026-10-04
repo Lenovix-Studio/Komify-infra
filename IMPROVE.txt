@@ -1,1 +1,8 @@
-chapter view: toast progress translate
+- chapter view: toast progress translate
+- implement reading history and sync across devices/sessions
+- add multi-language support / i18n for the user interface
+- advanced comic search with regex, exclusion tags, and custom filters
+- export/import database backup and restoration directly from the settings panel
+- batch operations for deleting or editing multiple comics/chapters at once
+- web scraper extension or enhanced auto-scraper scheduler for external comic sources
+- user role management / authentication & authorization middleware

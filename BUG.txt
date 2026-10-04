@@ -1,6 +1,5 @@
 Upload Page:
     - extract comic:
-        - https://nhentai.net/g/129179/ [Failed to fetch page. Status: 522]
         - https://www.hentai.name/g/533966/ [Failed to fetch page. Status: 403]
         
 > [FIXED 28/09/2026] saat upload komik baru:
