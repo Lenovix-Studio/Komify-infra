@@ -1,0 +1,5 @@
+- upload page > extrack metadanya masih belum optimal:
+    - [https://nhentai.com/en/comic/yuuki-kagoubutsu-satou-yu-ki-sugu-okoru-ore-no-hahaoya-ga-mukatsuku-dqn-kouhai-ni-netorareta-my-mother-who-gets-angry-easily-was-ntrd-by-an-annoying-dqn-junior-english-bamboozalator].
+    - [https://imhentai.xxx/gallery/1013459/].
+- Upload Page > extract comic:
+        - https://www.hentai.name/g/533966/ [Failed to fetch page. Status: 403]
